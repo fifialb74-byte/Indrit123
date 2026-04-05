@@ -106,7 +106,7 @@ animation:shake 0.6s infinite;
 100%{transform:translate(-50%,0)}
 }
 
-/* MENU */
+/* MENU DIREKT */
 #menu{
 display:none;
 position:fixed;
@@ -117,6 +117,7 @@ padding:20px;
 border-top-left-radius:20px;
 border-top-right-radius:20px;
 text-align:center;
+z-index:1000;
 }
 
 .menuBtn{
@@ -143,13 +144,13 @@ border-radius:10px;
 <!-- FAQJA 1 -->
 <button id="startBtn">Click & Continue 😋✨</button>
 
-<!-- POPUP 18+ FAQJA 2 -->
+<!-- POPUP 18+ -->
 <div id="popup">
   <h2>Are you 18+?</h2>
   <button id="yesBtn">Yes, continue 🔞</button>
 </div>
 
-<!-- HOLD -->
+<!-- HOLD BUTTON -->
 <a class="btn" 
 href="https://t.ajrkmx1.com/403824/8780/0?aff_sub=Indrit17&bo=2779,2778,2777,2776,2775&source=Indrit17&po=6533&aff_sub5=SF_006OG000004lmDN"
 onclick="return false;">
@@ -164,19 +165,19 @@ Press & Hold to Watch 🔞
 </div>
 
 <script>
-// STEP 1 -> CLICK & CONTINUE
+// STEP 1 -> Click & Continue
 document.getElementById("startBtn").onclick = function(){
 this.style.display="none";
 document.getElementById("popup").style.display="flex";
 };
 
-// STEP 2 -> 18+
+// STEP 2 -> Popup 18+
 document.getElementById("yesBtn").onclick = function(){
 document.getElementById("popup").style.display="none";
 document.querySelector(".btn").style.display="block";
 };
 
-// STEP 3 -> HOLD
+// STEP 3 -> HOLD 2 sekonda, hap direkt MENU
 let holdBtn = document.querySelector(".btn");
 let timer;
 
