@@ -152,20 +152,18 @@ document.getElementById("ageBtn").addEventListener("click", function(){
   document.getElementById("holdSection").style.display="block";
 });
 
-// 3. Hold 2 seconds (desktop + mobile)
+// 3. Hold 2 seconds button (desktop + mobile) shfaq menu-n, pa loading
 let holdBtn = document.getElementById("holdBtn");
 let timer;
 
 function startHold(){
-  holdBtn.innerText = "Holding...";
   timer = setTimeout(()=>{
     document.getElementById("menu").style.display="block";
-    holdBtn.innerText = "Done!";
   },2000);
 }
+
 function cancelHold(){
   clearTimeout(timer);
-  holdBtn.innerText = "Hold 2 Seconds to Open 🔞";
 }
 
 holdBtn.addEventListener("mousedown", startHold);
