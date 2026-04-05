@@ -11,7 +11,7 @@ font-family:Arial;
 overflow:hidden;
 }
 
-/* VIDEO PLAYER FAKE */
+/* FOTO */
 .player{
 position:fixed;
 top:0;
@@ -24,7 +24,6 @@ justify-content:center;
 align-items:center;
 }
 
-/* PLAY ICON */
 .play{
 width:90px;
 height:90px;
@@ -37,10 +36,54 @@ font-size:40px;
 color:white;
 }
 
+/* BUTTON FAQJA 1 */
+#startBtn{
+position:absolute;
+bottom:120px;
+left:50%;
+transform:translateX(-50%);
+padding:18px 35px;
+font-size:22px;
+background:green;
+color:white;
+border:none;
+border-radius:15px;
+cursor:pointer;
+box-shadow:0 0 15px lime;
+}
+
+/* POPUP 18+ */
+#popup{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+z-index:999;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+color:white;
+text-align:center;
+}
+
+#popup button{
+padding:15px 30px;
+margin-top:20px;
+font-size:20px;
+background:red;
+color:white;
+border:none;
+border-radius:15px;
+}
+
 /* HOLD BUTTON */
 .btn{
+display:none;
 position:absolute;
-bottom:100px;
+bottom:120px;
 left:50%;
 transform:translateX(-50%);
 background:#ff1a1a;
@@ -63,118 +106,88 @@ animation:shake 0.6s infinite;
 100%{transform:translate(-50%,0)}
 }
 
-/* POPUP 18+ */
-#popup{
-  position:fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  background:rgba(0,0,0,0.9);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  flex-direction:column;
-  color:white;
-  text-align:center;
-  z-index:999;
-}
-
-#popup h2{
-  margin-bottom:20px;
-}
-
-#ageBtn{
-  padding:15px 30px;
-  margin:10px;
-  font-size:20px;
-  background:green;
-  color:white;
-  border:none;
-  border-radius:15px;
-  cursor:pointer;
-}
-
-#holdSection{
-  display:none;
-  margin-top:20px;
-}
-
 /* MENU */
 #menu{
-  display:none;
-  position:fixed;
-  bottom:0;
-  width:100%;
-  background:#111;
-  padding:20px;
-  border-top-left-radius:20px;
-  border-top-right-radius:20px;
-  text-align:center;
+display:none;
+position:fixed;
+bottom:0;
+width:100%;
+background:#111;
+padding:20px;
+border-top-left-radius:20px;
+border-top-right-radius:20px;
+text-align:center;
 }
 
 .menuBtn{
-  display:block;
-  width:90%;
-  margin:10px auto;
-  padding:15px;
-  font-size:18px;
-  background:#333;
-  color:white;
-  border:none;
-  border-radius:10px;
+display:block;
+width:90%;
+margin:10px auto;
+padding:15px;
+font-size:18px;
+background:#333;
+color:white;
+border:none;
+border-radius:10px;
 }
 </style>
 
 </head>
 <body>
 
-<!-- PAGE -->
-<div id="loadingPage" class="player">
+<!-- FOTO -->
+<div class="player">
   <div class="play">▶</div>
 </div>
 
-<!-- POPUP 18+ -->
+<!-- FAQJA 1 -->
+<button id="startBtn">Click & Continue 😋✨</button>
+
+<!-- POPUP 18+ FAQJA 2 -->
 <div id="popup">
   <h2>Are you 18+?</h2>
-  <button id="ageBtn">Click & Continue 😋✨</button>
-  
-  <div id="holdSection">
-    <a class="btn" 
-    href="https://t.ajrkmx1.com/403824/8780/0?aff_sub=Indrit17&bo=2779,2778,2777,2776,2775&source=Indrit17&po=6533&aff_sub5=SF_006OG000004lmDN"
-    onclick="return false;">
-    Press & Hold to Watch 🔞
-    </a>
-  </div>
+  <button id="yesBtn">Yes, continue 🔞</button>
 </div>
+
+<!-- HOLD -->
+<a class="btn" 
+href="https://t.ajrkmx1.com/403824/8780/0?aff_sub=Indrit17&bo=2779,2778,2777,2776,2775&source=Indrit17&po=6533&aff_sub5=SF_006OG000004lmDN"
+onclick="return false;">
+Press & Hold to Watch 🔞
+</a>
 
 <!-- MENU -->
 <div id="menu">
-  <h3 style="color:white;">Open With</h3>
-  <button class="menuBtn" onclick="window.location.href='https://t.ajrkmx1.com/403824/8780/0?aff_sub=Indrit17&bo=2779,2778,2777,2776,2775&source=Indrit17&po=6533&aff_sub5=SF_006OG000004lmDN'">Google</button>
-  <button class="menuBtn" onclick="window.location.href='https://t.ajrkmx1.com/403824/8780/0?aff_sub=Indrit17&bo=2779,2778,2777,2776,2775&source=Indrit17&po=6533&aff_sub5=SF_006OG000004lmDN'">Browser</button>
+<h3 style="color:white;">Open With</h3>
+<button class="menuBtn" onclick="window.location.href='https://t.ajrkmx1.com/403824/8780/0?aff_sub=Indrit17&bo=2779,2778,2777,2776,2775&source=Indrit17&po=6533&aff_sub5=SF_006OG000004lmDN'">Google</button>
+<button class="menuBtn" onclick="window.location.href='https://t.ajrkmx1.com/403824/8780/0?aff_sub=Indrit17&bo=2779,2778,2777,2776,2775&source=Indrit17&po=6533&aff_sub5=SF_006OG000004lmDN'">Browser</button>
 </div>
 
 <script>
-// 1. Hiqim loading 1s, shfaqim popup direkt
-document.getElementById("loadingPage").style.display="none";
+// STEP 1 -> CLICK & CONTINUE
+document.getElementById("startBtn").onclick = function(){
+this.style.display="none";
 document.getElementById("popup").style.display="flex";
+};
 
-// 2. 18+ verification
-document.getElementById("ageBtn").addEventListener("click", function(){
-  document.getElementById("holdSection").style.display="block";
-});
+// STEP 2 -> 18+
+document.getElementById("yesBtn").onclick = function(){
+document.getElementById("popup").style.display="none";
+document.querySelector(".btn").style.display="block";
+};
 
-// 3. Hold 2 seconds button për menu manuale
+// STEP 3 -> HOLD
 let holdBtn = document.querySelector(".btn");
 let timer;
 
 function startHold(){
-  timer = setTimeout(()=>{
-    document.getElementById("menu").style.display="block";
-  },2000); // 2 sekonda
+timer = setTimeout(()=>{
+document.getElementById("menu").style.display="block";
+},2000);
 }
 
 function cancelHold(){
-  clearTimeout(timer);
+clearTimeout(timer);
 }
 
 holdBtn.addEventListener("mousedown", startHold);
