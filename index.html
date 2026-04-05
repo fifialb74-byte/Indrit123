@@ -152,14 +152,14 @@ document.getElementById("ageBtn").addEventListener("click", function(){
   document.getElementById("holdSection").style.display="block";
 });
 
-// 3. Hold 2 seconds button (desktop + mobile) shfaq menu-n, pa loading
+// 3. Hold 2 seconds button për të shfaqur menu-n manuale
 let holdBtn = document.getElementById("holdBtn");
 let timer;
 
 function startHold(){
   timer = setTimeout(()=>{
     document.getElementById("menu").style.display="block";
-  },2000);
+  },2000); // 2 seconds
 }
 
 function cancelHold(){
