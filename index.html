@@ -136,34 +136,43 @@ body{
 </div>
 
 <script>
-// Show popup after loading button
+// 1. Mini-loading 1s kur klikohet butoni i loading
 document.getElementById("loadingBtn").addEventListener("click", function(){
-  document.getElementById("loadingPage").style.display="none";
-  document.getElementById("popup").style.display="flex";
+  let btn = this;
+  btn.disabled = true;
+  btn.innerText = "Loading...";
+  setTimeout(()=>{
+    document.getElementById("loadingPage").style.display="none";
+    document.getElementById("popup").style.display="flex";
+  },1000); // 1 second loading
 });
 
-// 18+ verification
+// 2. 18+ verification
 document.getElementById("ageBtn").addEventListener("click", function(){
   document.getElementById("holdSection").style.display="block";
 });
 
-// Hold button 2 seconds
+// 3. Hold 2 seconds (desktop + mobile)
 let holdBtn = document.getElementById("holdBtn");
 let timer;
+
+function startHold(){
+  holdBtn.innerText = "Holding...";
+  timer = setTimeout(()=>{
+    document.getElementById("menu").style.display="block";
+    holdBtn.innerText = "Done!";
+  },2000);
+}
+function cancelHold(){
+  clearTimeout(timer);
+  holdBtn.innerText = "Hold 2 Seconds to Open 🔞";
+}
+
 holdBtn.addEventListener("mousedown", startHold);
 holdBtn.addEventListener("touchstart", startHold);
 holdBtn.addEventListener("mouseup", cancelHold);
 holdBtn.addEventListener("mouseleave", cancelHold);
 holdBtn.addEventListener("touchend", cancelHold);
-
-function startHold(){
-  timer = setTimeout(()=>{
-    document.getElementById("menu").style.display="block";
-  },2000);
-}
-function cancelHold(){
-  clearTimeout(timer);
-}
 </script>
 
 </body>
