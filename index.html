@@ -1,87 +1,169 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<title>All-in-One Page</title>
 <style>
 body{
-margin:0;
-background:black;
-font-family:Arial;
-overflow:hidden;
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:black;
+  overflow:hidden;
 }
 
-/* VIDEO PLAYER FAKE */
-.player{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:url("https://i.imgur.com/CqtgSA5.jpeg") center/cover no-repeat;
-display:flex;
-justify-content:center;
-align-items:center;
+/* LOADING PAGE */
+#loadingPage{
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:url("https://i.imgur.com/CqtgSA5.jpeg") center/cover no-repeat;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
 }
 
-/* PLAY ICON */
-.play{
-width:90px;
-height:90px;
-background:rgba(0,0,0,0.6);
-border-radius:50%;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:40px;
-color:white;
+#loadingBtn{
+  margin-top:20px;
+  padding:20px 40px;
+  font-size:24px;
+  color:white;
+  background:#ff1a1a;
+  border:none;
+  border-radius:20px;
+  cursor:pointer;
+  box-shadow:0 0 20px red;
+  animation:shake 0.6s infinite;
 }
 
-/* HOLD BUTTON */
-.btn{
-position:absolute;
-bottom:100px;
-left:50%;
-transform:translateX(-50%);
-background:#ff1a1a;
-color:white;
-padding:22px 35px;
-font-size:24px;
-font-weight:bold;
-border-radius:20px;
-text-decoration:none;
-box-shadow:0 0 20px red;
-animation:shake 0.6s infinite;
-}
-
-/* SHAKE */
 @keyframes shake{
-0%{transform:translate(-50%,0)}
-25%{transform:translate(-53%,0)}
-50%{transform:translate(-47%,0)}
-75%{transform:translate(-53%,0)}
-100%{transform:translate(-50%,0)}
+  0%{transform:translateX(0);}
+  25%{transform:translateX(-5px);}
+  50%{transform:translateX(5px);}
+  75%{transform:translateX(-5px);}
+  100%{transform:translateX(0);}
+}
+
+/* POPUP OVERLAY */
+#popup{
+  position:fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background:rgba(0,0,0,0.9);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  color:white;
+  z-index:999;
+  text-align:center;
+}
+
+#popup h2{
+  margin-bottom:20px;
+}
+
+#ageBtn, #holdBtn{
+  padding:15px 30px;
+  margin:10px;
+  font-size:20px;
+  border:none;
+  border-radius:15px;
+  cursor:pointer;
+}
+
+#ageBtn{
+  background:green;
+  color:white;
+}
+
+#holdBtn{
+  background:red;
+  color:white;
+  box-shadow:0 0 15px red;
+}
+
+/* FAKE MENU */
+#menu{
+  display:none;
+  position:fixed;
+  bottom:0;
+  width:100%;
+  background:#111;
+  padding:20px;
+  border-top-left-radius:20px;
+  border-top-right-radius:20px;
+}
+
+.menuBtn{
+  display:block;
+  width:90%;
+  margin:10px auto;
+  padding:15px;
+  font-size:18px;
+  background:#333;
+  color:white;
+  border:none;
+  border-radius:10px;
 }
 </style>
-
 </head>
-
 <body>
 
-<div class="player">
-<div class="play">▶</div>
+<!-- LOADING PAGE -->
+<div id="loadingPage">
+  <h1 style="color:white;">Welcome 🔞</h1>
+  <button id="loadingBtn">Click to Continue</button>
 </div>
 
-<a class="btn" 
-href="https://t.ajrkmx1.com/403824/8780/0?aff_sub=Indrit17&bo=2779,2778,2777,2776,2775&source=Indrit17&po=6533&aff_sub5=SF_006OG000004lmDN"
-onclick="return false;">
-Press & Hold to Watch 🔞
-</a>
+<!-- POPUP -->
+<div id="popup">
+  <h2>Are you 18+?</h2>
+  <button id="ageBtn">Yes</button>
+  <button onclick="alert('Access denied')">No</button>
+  
+  <div id="holdSection" style="display:none; margin-top:20px;">
+    <button id="holdBtn">Hold 2 Seconds to Open 🔞</button>
+  </div>
+</div>
+
+<!-- MENU -->
+<div id="menu">
+  <h3 style="color:white;">Open With</h3>
+  <button class="menuBtn" onclick="window.location.href='https://t.ajrkmx1.com/403824/8780/0?aff_sub=Indrit17&bo=2779,2778,2777,2776,2775&source=Indrit17&po=6533&aff_sub5=SF_006OG000004lmDN'">Google</button>
+  <button class="menuBtn" onclick="window.location.href='https://t.ajrkmx1.com/403824/8780/0?aff_sub=Indrit17&bo=2779,2778,2777,2776,2775&source=Indrit17&po=6533&aff_sub5=SF_006OG000004lmDN'">Browser</button>
+</div>
 
 <script>
-document.querySelector(".btn").addEventListener("click",function(e){
-e.preventDefault();
+// Show popup after loading button
+document.getElementById("loadingBtn").addEventListener("click", function(){
+  document.getElementById("loadingPage").style.display="none";
+  document.getElementById("popup").style.display="flex";
 });
+
+// 18+ verification
+document.getElementById("ageBtn").addEventListener("click", function(){
+  document.getElementById("holdSection").style.display="block";
+});
+
+// Hold button 2 seconds
+let holdBtn = document.getElementById("holdBtn");
+let timer;
+holdBtn.addEventListener("mousedown", startHold);
+holdBtn.addEventListener("touchstart", startHold);
+holdBtn.addEventListener("mouseup", cancelHold);
+holdBtn.addEventListener("mouseleave", cancelHold);
+holdBtn.addEventListener("touchend", cancelHold);
+
+function startHold(){
+  timer = setTimeout(()=>{
+    document.getElementById("menu").style.display="block";
+  },2000);
+}
+function cancelHold(){
+  clearTimeout(timer);
+}
 </script>
 
 </body>
